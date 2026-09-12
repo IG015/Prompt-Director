@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PromptDirector Bridge</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <style>[hidden] { display: none !important; } .step-list b { max-width: 65%; overflow-wrap: anywhere; text-align: right; }</style>
+</head>
+<body>
+  <header class="panel-header">
+    <span class="mark">PD</span>
+    <div><strong>PROMPTDIRECTOR BRIDGE</strong><small id="connection">Waiting for package</small></div>
+    <button id="diagnostics-toggle" class="icon-button" title="Show diagnostics" aria-label="Show diagnostics">⋯</button>
+  </header>
+
+  <main>
+    <section id="empty-state" class="empty-state">
+      <strong>No generation package</strong>
+      <p>Prepare Shot 04.07 in PromptDirector, then click Generate.</p>
+    </section>
+
+    <div id="session" hidden>
+      <section class="shot-card">
+        <small id="scene-label">SCENE —</small>
+        <h1 id="shot-label">Shot —</h1>
+        <p id="shot-title">—</p>
+        <span id="package-state" class="state-pill">Resolving assets</span>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title"><span>REFERENCES</span><b id="reference-count">0/0</b></div>
+        <div id="references" class="references"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title"><span>PROMPT</span><button id="copy-prompt" class="text-button">COPY</button></div>
+        <pre id="prompt"></pre>
+      </section>
+
+      <section class="settings-grid">
+        <div><small>DURATION</small><strong id="duration">—</strong></div>
+        <div><small>ASPECT RATIO</small><strong id="aspect-ratio">—</strong></div>
+      </section>
+
+      <section class="mode-block">
+        <small>AUTOMATION MODE</small>
+        <div class="mode-switch" role="group" aria-label="Automation mode">
+          <button data-mode="AUTO">AUTO</button>
+          <button data-mode="ASSISTED" class="active">ASSISTED</button>
+          <button data-mode="MANUAL">MANUAL</button>
+        </div>
+      </section>
+
+      <section class="operations">
+        <button id="open-vibes" class="primary-action">OPEN VIBES</button>
+        <button id="send-ingredients">SEND INGREDIENTS</button>
+        <button id="set-initial-frame">SET INITIAL FRAME</button>
+        <button id="insert-prompt">INSERT PROMPT</button>
+        <button id="apply-settings">APPLY SETTINGS</button>
+        <button id="generate" disabled>GENERATE</button>
+        <button id="run-auto" hidden>RUN AUTO</button>
+      </section>
+
+      <section class="step-list" aria-live="polite">
+        <div><span>Ingredients</span><b id="ingredients-state">○ Not sent</b></div>
+        <div><span>Initial frame</span><b id="initialFrame-state">○ Not set</b></div>
+        <div><span>Prompt</span><b id="prompt-state">Ready</b></div>
+        <div><span>Settings</span><b id="settings-state">○ Not applied</b></div>
+        <div><span>Generation</span><b id="generate-state">○ Not submitted</b></div>
+      </section>
+
+      <section id="diagnostics" class="diagnostics" hidden>
+        <div class="section-title"><span>DIAGNOSTICS</span><b>VIBES</b></div>
+        <dl>
+          <dt>Generation Package</dt><dd id="diag-package">—</dd>
+          <dt>Assets</dt><dd id="diag-assets">—</dd>
+          
+          <dt>Current State</dt><dd id="diag-state">—</dd>
+          <dt>Upload Strategy</dt><dd id="diag-strategy">—</dd>
+          <dt>File Inputs Found</dt><dd id="diag-inputs">—</dd>
+          <dt>Dropzones Found</dt><dd id="diag-dropzones">—</dd>
+        </dl>
+        <pre id="diag-details" aria-live="polite"></pre>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="asset-viewer"><button id="close-viewer" aria-label="Close preview">×</button><img id="viewer-image" alt="Reference preview"><strong id="viewer-name"></strong></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
