@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "PromptDirector Bridge",
+  "version": "2.0.0",
+  "description": "Shows PromptDirector generation packages in a visible Meta Vibes side panel.",
+  "permissions": ["tabs", "scripting", "sidePanel"],
+  "host_permissions": [
+    "https://vibes.ai/*",
+    "https://property-director-studio.iagomaneiraso.chatgpt.site/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://property-director-studio.iagomaneiraso.chatgpt.site/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": ["pageBridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://vibes.ai/*"],
+      "js": [
+        "modules/vibesUploader.js",
+        "modules/vibesInitialFrame.js",
+        "modules/vibesPrompt.js",
+        "modules/vibesGenerator.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://property-director-studio.iagomaneiraso.chatgpt.site/*",
+      "http://localhost/*",
+      "http://127.0.0.1/*"
+    ]
+  },
+  "action": { "default_title": "Open PromptDirector Bridge" }
+}
