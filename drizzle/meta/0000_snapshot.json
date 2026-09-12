@@ -1,0 +1,42 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "e053888d-5e79-4a08-a58f-b3ef18c5ee31",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "studio": {
+      "name": "studio",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "data": {
+          "name": "data",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789073515968,
+      "tag": "0000_silly_agent_zero",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789109970907,
+      "tag": "0001_slimy_inertia",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789109992585,
+      "tag": "0002_magenta_mercury",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1789132614265,
+      "tag": "0003_daily_spot",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1789134410811,
+      "tag": "0004_absurd_serpent_society",
+      "breakpoints": true
+    }
+  ]
+}
